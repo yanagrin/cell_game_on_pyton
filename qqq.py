@@ -1,5 +1,8 @@
 import pygame
-from Intro import intro
+
+border = [0][0]
+
+
 def sprite_rect(screen, cell):
     left = cell[1][0]
     top = cell[1][1]
@@ -7,17 +10,27 @@ def sprite_rect(screen, cell):
                      ((left + border, top + border),
                       (border * 8, border * 3)),
                      border // 3)
+
+
 class Entity:
     def __init__(self):
         pass
+
     def move(self):
         pass
+
     def chance(self):
         pass
+
+
 class Enemy(Entity):
     pass
+
+
 class Soldier(Entity):
     pass
+
+
 class Menu:
     def __init__(self, w, h, le, t):
         self.wsize = border * 10
@@ -32,6 +45,7 @@ class Menu:
             (0,
              (le + i * self.wsize, t + j * self.hsize)
              ) for i in range(self.width)] for j in range(self.height)]
+
     def render(self, screen):
         x = self.left - self.wsize
         y = self.top - self.hsize
@@ -44,11 +58,26 @@ class Menu:
                                  ((x, y), (self.wsize, self.hsize)),
                                  self.border)
             y = self.top - self.hsize
+
+
 class Table(Menu):
-    def __init__(self, w, h, le, t):
-        super(Table, self).__init__(w, h, le, t)
-        self.wsize = 2 * self.hsize
-        self.left = desk.left + desk.width * desk.wsize + border * 5
+    pass
+
+
 class Desk(Menu):
     def __init__(self, w, h, le, t):
         super(Desk, self).__init__(w, h, le, t)
+
+
+wsize = border * 10
+hsize = border * 10
+width = 300
+height = 500
+left = [1][0]
+top = [0][0]
+border = border // 3
+data = [[
+    (0,
+        (left + i * wsize, top + j * hsize)
+        ) for i in range(width)] for j in range(height)]
+
